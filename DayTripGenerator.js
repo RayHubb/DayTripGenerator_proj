@@ -1,7 +1,4 @@
 "use strict"
-//The code will generate a random destination, restaurant, mode of
-//transportation, and a form of entertainment to be slected for a day trip. 
-//My first step will be to create arrays to randomly select from.
 
 let destination = [];
 destination.push("Detroit", "Ann Arbor", "Lansing", "Troy", "Traverse City", 
@@ -12,22 +9,36 @@ restaurants.push("Capers","White Castle", "Golden Coral", "Taco Bell", "Kow Loon
 "Red Lobster", "Steak and Shake");
 
 let transportation = [];
-transportation.push("personal vehicle", "rideshare", "train", "taxi", "rental");
+transportation.push("Personal Vehicle", "Uber", "Train", "Taxi", "Bike");
 
-let entertainment = []
-entertainment.push("tour a history museum?!", "go on a city tour?!", "go fishing?!", 
-"see a play at the local theater?!", "go to the arcade?!", "check out the local shopping ares?!", "get some drinks at the local bar?!");
 
-//Now that I have my arrays set up, I have write code that will randomly choose 
-//an index from the arrays. The methods I will use are Math.floor and Math.random
-//I will multiply my array.length by the random number and use the Math.floor to
-//method to round the reslut to the nearest integer.
+let entertainment = [];
+entertainment.push("History Museum", "City Tour", "Fishing", 
+"Local Theater", "Arcade", "Shopping", 
+"Local Bar");
 
-function dayTripGenerator(){
-    let randomDestination = destination[Math.floor(Math.random() * destination.length)];
-    
-    let randomTransportation = transportation[Math.floor(Math.random() * transportation.length)];
-    
-    let randomRestaurant = restaurants[Math.floor(Math.random() * restaurants.length)];
-   
-    let randomEntertainment = entertainment[Math.floor(Math.random() * entertainment.length)];
+let trash = [];
+let finalArray = [];
+
+//As I misunderstood the assignment, I realized that I would need to completely change everything. The Arrays were fine
+// but I edited the text and added two more to get rid of the unwanted values and one to store the wanted values. The function 
+//below selects// a random value from the given array and prompts the user type "Yes" or "No".If the user types no, value will be 
+//stored in the "trash" array and the code will loop selecting another value. If yes the value will be stored in the
+//"final" array.
+
+function randomizer(anArray){
+    let randomValue = anArray[Math.floor(Math.random() * anArray.length)];
+    let userInput = prompt("We randomly chose" + " " + randomValue + "! Type 'Yes' if you like would to continue"
+    + " or type 'No' to try again!");
+    while (userInput === "No"){
+        trash.push(randomValue)
+        randomValue = anArray[Math.floor(Math.random() * anArray.length)];
+        userInput = prompt("We randomly chose" + randomValue + "! Type 'Yes' if you like would to continue"
+        + "or type 'No' to try again!");
+        if (userInput === "Yes"){
+            break;
+        }   else {
+            continue;
+        }    
+    }return finalArray.push(randomValue);
+}

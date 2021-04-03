@@ -13,11 +13,9 @@ transportation.push("Personal Vehicle", "Uber", "Train", "Taxi", "Bike");
 
 
 let entertainment = [];
-entertainment.push("History Museum", "City Tour", "Fishing", 
-"Local Theater", "Arcade", "Shopping", 
-"Local Bar");
+entertainment.push("a History Museum Tour", "a Tour of the City", " a Fishing Tour", 
+"a Local Theater", "an Arcade", "the Local Shopping Outlet", "a Local Bar");
 
-let trash = [];
 let finalArray = [];
 
 //As I misunderstood the assignment, I realized that I would need to completely change everything. The Arrays were fine
@@ -31,9 +29,8 @@ function randomizer(anArray){
     let userInput = prompt("We randomly chose" + " " + randomValue + "! Type 'Yes' if you like would to continue"
     + " or type 'No' to try again!");
     while (userInput === "No"){
-        trash.push(randomValue)
         randomValue = anArray[Math.floor(Math.random() * anArray.length)];
-        userInput = prompt("We randomly chose" + randomValue + "! Type 'Yes' if you like would to continue"
+        userInput = prompt("We randomly chose " + randomValue + "! Type 'Yes' if you like would to continue"
         + "or type 'No' to try again!");
         if (userInput === "Yes"){
             break;
@@ -42,3 +39,11 @@ function randomizer(anArray){
         }    
     }return finalArray.push(randomValue);
 }
+
+randomizer(destination)
+randomizer(transportation)
+randomizer(restaurants)
+randomizer(entertainment)
+
+console.log("Congratulations! Your trip is complete! You will be traveling to " + finalArray[0] + " via " + finalArray[1] + ". When"
++ " you get hungry you can stop by " + finalArray[2] + " for some food! For entertainment, you said youd like to check out " + finalArray[3])

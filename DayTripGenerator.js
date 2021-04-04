@@ -25,25 +25,21 @@ let finalArray = [];
 //"final" array.
 
 function randomizer(anArray){
-    let randomValue = anArray[Math.floor(Math.random() * anArray.length)];
-    let userInput = prompt("We randomly chose" + " " + randomValue + "! Type 'Yes' if you like would to continue"
-    + " or type 'No' to try again!");
+    let randomValue = null;
+    let userInput = "No";
     while (userInput === "No"){
         randomValue = anArray[Math.floor(Math.random() * anArray.length)];
-        userInput = prompt("We randomly chose " + randomValue + "! Type 'Yes' if you like would to continue"
-        + "or type 'No' to try again!");
-        if (userInput === "Yes"){
-            break;
-        }   else {
-            continue;
-        }    
+        userInput = prompt("We randomly chose " + randomValue + "! If you want a new roll TYPE 'No'. ANY OTHER ACTION"
+        + " will confirm " + randomValue + "!");        
     }return finalArray.push(randomValue);
 }
 
+//I need to run my functions in an order that allows me to console.log them out and display a user friendly message.
 randomizer(destination)
 randomizer(transportation)
 randomizer(restaurants)
 randomizer(entertainment)
 
 console.log("Congratulations! Your trip is complete! You will be traveling to " + finalArray[0] + " via " + finalArray[1] + ". When"
-+ " you get hungry you can stop by " + finalArray[2] + " for some food! For entertainment, you said youd like to check out " + finalArray[3])
++ " you get hungry you can stop by " + finalArray[2] + " for some food! For entertainment, you can check out " 
++ finalArray[3] + "!")

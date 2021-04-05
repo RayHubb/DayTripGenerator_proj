@@ -50,7 +50,8 @@ let confirmation = confirm("Just to confirm..... You will be traveling to " + fi
 
 //Now comes he toughest part. Finding a way for the user to redo their choices if they dont like the end results.
 //Not fancy but the if statements get the job done. The .splice method came in handy here! If the user wants to change
-//their trip, they now can!
+//their trip, they now can.
+
 let removed = null;
 let newValue0 = null;
 let newValue1 = null;
@@ -58,10 +59,10 @@ let newValue2 = null;
 let newValue3 = null;
 
 
-if(confirmation === false){
+while(confirmation === false){
     newValue0 = confirm("Roger Roger! You want to change your trip! Click Ok to change the Destination from " + finalArray[0]
     + "! Click Cancel to review your Transportation!");
-}   
+  
 if (newValue0 === true){
     randomizer(destination);
     let removed = finalArray.splice(0, 1, finalArray[4]);
@@ -89,6 +90,13 @@ if (newValue3 === true){
     randomizer(entertainment);
     let removed = finalArray.splice(3, 1, finalArray[4])
     finalArray.length = 4;
+}   
+    let confirmation = confirm("Just to confirm..... You will be traveling to " + finalArray[0] + " via " + finalArray[1] + ". When"
+    + " you get hungry you can stop by " + finalArray[2] + " for some food! For entertainment, you can check out " 
+    + finalArray[3] + "! Would you like to confirm your trip? Click Ok to confirm or Cancel if you want to make changes");
+    if (confirmation === true){
+        break;
+    }
 }
 
 console.log("Congratulations! Your trip is complete! You will be traveling to " + finalArray[0] + " via " + finalArray[1] + ". When"
